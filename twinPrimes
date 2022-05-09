@@ -1,0 +1,32 @@
+def isPrime(P):
+    is_prime = True
+    for i in range(2,P):
+        if P%i == 0:
+            is_prime = False
+            break
+    return is_prime
+
+N = int(input('a number please '))
+numPrimes = 0; L = []; i = 2
+while numPrimes < N:
+    if isPrime(i)==True:
+        L.append(i)
+        numPrimes += 1
+    i += 1
+print(L)
+
+# c
+N = int(input('and yet another '))
+numPrimesTwins = 0; L = []; L2 =[]; L3 = []; i = 2
+while numPrimesTwins < N:
+    if isPrime(i) == True:
+        L.append(i)
+        if i-2 in L:
+            L3.append(i-2)
+            L3.append(i)
+            L2.append(L3)
+            numPrimesTwins += 1
+            L3 = []
+    i += 1
+
+print(L2)
